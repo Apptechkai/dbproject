@@ -16,13 +16,3 @@ MongoClient.connect(uri, function(err, client) {
    client.close();
 });
 
-const DATABASE_NAME = "dbproject";
-
-app.post("/createuser", (request, response) => {
-    collection_users.insert(request.body, (error, result) => {
-        if(error) {
-            return response.status(500).send(error);
-        }
-        response.send(result.result);
-    });
-});
