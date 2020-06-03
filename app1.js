@@ -4,7 +4,9 @@ const BodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 
-const CONNECTION_URL = 'mongodb://127.0.0.1:27017'
+//const CONNECTION_URL = 'mongodb://127.0.0.1:27017'
+const CONNECTION_URL = "mongodb+srv://admin:admin@cluster1-gw7ks.mongodb.net/test?retryWrites=true&w=majority";
+
 const DATABASE_NAME = "dbproject";
  
  
@@ -13,7 +15,7 @@ app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 var database, collection_users  , collection_vehicles;
  
-app.listen(27017, () => {
+app.listen(8080, () => {
     MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true },{ useUnifiedTopology: true }, (error, client) => {
         if(error) {
             throw error;
